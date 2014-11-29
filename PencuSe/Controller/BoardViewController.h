@@ -8,6 +8,12 @@
 
 #import "BaseViewController.h"
 
+typedef NS_ENUM(NSInteger, GameMode) {
+    GameModeMultiplayer
+};
+
 @interface BoardViewController : BaseViewController
+
+- (instancetype)initWithGameMode:(GameMode)mode;
 
 @end
