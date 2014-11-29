@@ -13,7 +13,6 @@
 		5782FF911A2A37BC004DDA2F /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5782FF901A2A37BC004DDA2F /* MenuViewController.m */; };
 		5782FF941A2A37CF004DDA2F /* BoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5782FF931A2A37CF004DDA2F /* BoardViewController.m */; };
 		57BE05021A2A564000ED927D /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57BE05011A2A564000ED927D /* BaseModel.m */; };
-		57BE05031A2A564000ED927D /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57BE05011A2A564000ED927D /* BaseModel.m */; };
 		57CCCCB21A2A2AFB00C3E839 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CCCCB11A2A2AFB00C3E839 /* main.m */; };
 		57CCCCB51A2A2AFB00C3E839 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CCCCB41A2A2AFB00C3E839 /* AppDelegate.m */; };
 		57CCCCBD1A2A2AFB00C3E839 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57CCCCBC1A2A2AFB00C3E839 /* Images.xcassets */; };
@@ -297,7 +296,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57BE05031A2A564000ED927D /* BaseModel.m in Sources */,
 				57CCCCCC1A2A2AFB00C3E839 /* PencuSeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,6 +402,7 @@
 		};
 		57CCCCD01A2A2AFB00C3E839 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3AA8D41CF70FD6473707723 /* Pods-PencuSe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -416,6 +415,7 @@
 		};
 		57CCCCD11A2A2AFB00C3E839 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87AAAA9DBCD776044ADD47D3 /* Pods-PencuSe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

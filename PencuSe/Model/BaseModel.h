@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Ahmet Karalar. All rights reserved.
 //
 
-#import <Mantle.h>
+#import <MTLModel.h>
 
 @interface BaseModel : MTLModel
 
