@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5782FF8B1A2A35E3004DDA2F /* Warnings.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5782FF8A1A2A35E3004DDA2F /* Warnings.xcconfig */; };
+		576167951A2A407E0001B503 /* Warnings.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 576167941A2A407E0001B503 /* Warnings.xcconfig */; };
 		5782FF8E1A2A3799004DDA2F /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5782FF8D1A2A3799004DDA2F /* BaseViewController.m */; };
 		5782FF911A2A37BC004DDA2F /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5782FF901A2A37BC004DDA2F /* MenuViewController.m */; };
 		5782FF941A2A37CF004DDA2F /* BoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5782FF931A2A37CF004DDA2F /* BoardViewController.m */; };
@@ -29,7 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5782FF8A1A2A35E3004DDA2F /* Warnings.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Warnings.xcconfig; path = PencuSe/Warnings.xcconfig; sourceTree = "<group>"; };
+		576167941A2A407E0001B503 /* Warnings.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Warnings.xcconfig; sourceTree = "<group>"; };
 		5782FF8C1A2A3799004DDA2F /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		5782FF8D1A2A3799004DDA2F /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		5782FF8F1A2A37BC004DDA2F /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
@@ -70,14 +70,14 @@
 			isa = PBXGroup;
 			children = (
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		5782FF881A2A3375004DDA2F /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		5782FF891A2A337D004DDA2F /* Controller */ = {
@@ -90,13 +90,12 @@
 				5782FF921A2A37CF004DDA2F /* BoardViewController.h */,
 				5782FF931A2A37CF004DDA2F /* BoardViewController.m */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		57CCCCA31A2A2AFB00C3E839 = {
 			isa = PBXGroup;
 			children = (
-				5782FF8A1A2A35E3004DDA2F /* Warnings.xcconfig */,
 				57CCCCAE1A2A2AFB00C3E839 /* PencuSe */,
 				57CCCCC81A2A2AFB00C3E839 /* PencuSeTests */,
 				57CCCCAD1A2A2AFB00C3E839 /* Products */,
@@ -115,6 +114,7 @@
 		57CCCCAE1A2A2AFB00C3E839 /* PencuSe */ = {
 			isa = PBXGroup;
 			children = (
+				576167941A2A407E0001B503 /* Warnings.xcconfig */,
 				5782FF891A2A337D004DDA2F /* Controller */,
 				5782FF881A2A3375004DDA2F /* View */,
 				5782FF851A2A330E004DDA2F /* Model */,
@@ -133,7 +133,7 @@
 				57CCCCB01A2A2AFB00C3E839 /* Info.plist */,
 				57CCCCB11A2A2AFB00C3E839 /* main.m */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		57CCCCC81A2A2AFB00C3E839 /* PencuSeTests */ = {
@@ -150,7 +150,7 @@
 			children = (
 				57CCCCCA1A2A2AFB00C3E839 /* Info.plist */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,7 +234,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5782FF8B1A2A35E3004DDA2F /* Warnings.xcconfig in Resources */,
+				576167951A2A407E0001B503 /* Warnings.xcconfig in Resources */,
 				57CCCCC01A2A2AFB00C3E839 /* LaunchScreen.xib in Resources */,
 				57CCCCBD1A2A2AFB00C3E839 /* Images.xcassets in Resources */,
 			);
@@ -294,7 +294,7 @@
 /* Begin XCBuildConfiguration section */
 		57CCCCCD1A2A2AFB00C3E839 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5782FF8A1A2A35E3004DDA2F /* Warnings.xcconfig */;
+			baseConfigurationReference = 576167941A2A407E0001B503 /* Warnings.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -373,11 +373,11 @@
 		};
 		57CCCCD01A2A2AFB00C3E839 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5782FF8A1A2A35E3004DDA2F /* Warnings.xcconfig */;
+			baseConfigurationReference = 576167941A2A407E0001B503 /* Warnings.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = PencuSe/Info.plist;
+				INFOPLIST_FILE = "PencuSe/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -389,7 +389,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = PencuSe/Info.plist;
+				INFOPLIST_FILE = "PencuSe/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -408,7 +408,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = PencuSeTests/Info.plist;
+				INFOPLIST_FILE = "PencuSeTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PencuSe.app/PencuSe";
@@ -423,7 +423,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = PencuSeTests/Info.plist;
+				INFOPLIST_FILE = "PencuSeTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PencuSe.app/PencuSe";

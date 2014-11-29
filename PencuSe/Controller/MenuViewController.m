@@ -18,6 +18,8 @@ typedef NS_ENUM(NSInteger, MenuButtonIndex) {
 
 @interface MenuViewController ()
 
+@property (nonatomic) NSArray *buttons;
+
 
 - (void)didTapButton:(UIButton *)button;
 
@@ -34,6 +36,11 @@ typedef NS_ENUM(NSInteger, MenuButtonIndex) {
 {
     [super viewDidLoad];
 
+
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+    [button setTitle:NSLocalizedString(@"1 vs 1", nil) forState:UIControlStateNormal];
+
+    
 }
 
 #pragma mark - Actions
