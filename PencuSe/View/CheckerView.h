@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIColor+PencuSeAdditions.h"
 
 @interface CheckerView : UIView
+
+@property (nonatomic) CheckerColor color;
 
 @end

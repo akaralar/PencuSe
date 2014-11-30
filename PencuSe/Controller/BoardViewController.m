@@ -14,6 +14,9 @@
 @interface BoardViewController ()
 
 @property (nonatomic) BoardView *boardView;
+@property (nonatomic) NSArray *checkers;
+
+- (void)handleCheckerPan:(UIPanGestureRecognizer *)recognizer;
 
 @end
 
@@ -37,6 +40,16 @@
     [self.boardView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
+
+    
+    [self.boardView highlightAllowedMoveAtIndex:5];
+    [self.boardView highlightAllowedMoveAtIndex:8];
+    
+}
+
+- (void)handleCheckerPan:(UIPanGestureRecognizer *)recognizer
+{
+    NSLog(@"%@", recognizer);
 }
 
 @end

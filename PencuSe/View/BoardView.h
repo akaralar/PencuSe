@@ -10,6 +10,8 @@
 
 @interface BoardView : UIView
 
-
+- (void)highlightSelectionAtIndex:(NSInteger)index;
+- (void)highlightAllowedMoveAtIndex:(NSInteger)index;
+- (void)highlightForbiddenMoveAtIndex:(NSInteger)index;
 
 @end

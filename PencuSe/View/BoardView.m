@@ -9,6 +9,8 @@
 #import "BoardView.h"
 #import "PointView.h"
 #import "Masonry.h"
+#import "CheckerView.h"
+#import <BlocksKit/BlocksKit.h>
 
 // A point is the slot a checker can move to
 static const NSInteger kNumberOfPoints = 24;
@@ -42,10 +44,7 @@ static const CGFloat kPointHeightToTotalHeightRatio = 0.45;
         return nil;
     }
 
-    self.backgroundColor = [UIColor colorWithRed:(CGFloat)0.563
-                                           green:(CGFloat)0.332
-                                            blue:(CGFloat)0.264
-                                           alpha:1];
+    self.backgroundColor = [UIColor boardWoodColor];
 
     _points = [NSMutableArray array];
 
@@ -54,6 +53,7 @@ static const CGFloat kPointHeightToTotalHeightRatio = 0.45;
         PointView *pointView = [[PointView alloc] initWithFrame:CGRectZero];
         pointView.pointColor = (i % 2 == 0) ? PointColorRed : PointColorWhite;
         pointView.pointDirection = i / (kNumberOfPoints / 2.0) < 1 ? PointDirectionDown : PointDirectionUp;
+        pointView.pointIndex = i;
         [_points addObject:pointView];
         [self addSubview:pointView];
 
@@ -70,6 +70,7 @@ static const CGFloat kPointHeightToTotalHeightRatio = 0.45;
 
         if (i >= kNumberOfPoints / 4 &&
             i < kNumberOfPoints - (kNumberOfPoints / 4)) {
+
             leftEdgeMultiplier += 2 * leftPaddingMultiplier;
         }
 
@@ -82,11 +83,87 @@ static const CGFloat kPointHeightToTotalHeightRatio = 0.45;
             make.top.equalTo(self.mas_bottom).multipliedBy(topEdgeMultiplier);
             make.width.equalTo(self.mas_width).multipliedBy(kPointWidthToTotalWidthRatio);
             make.height.equalTo(self.mas_height).multipliedBy(kPointHeightToTotalHeightRatio);
+        }];
 
+        // put index labels above or below points
+        UILabel *indexLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        indexLabel.textColor = [UIColor whiteColor];
+        indexLabel.text = @(pointView.pointIndex + 1).stringValue;
+
+        if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+
+            indexLabel.font = [UIFont systemFontOfSize:10];
+        }
+
+        [self addSubview:indexLabel];
+
+        [indexLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+
+            make.centerX.equalTo(pointView);
+
+            if (i + 1 > (kNumberOfPoints / 2)) {
+
+                make.top.equalTo(pointView.mas_bottom).with.offset(2);
+            }
+            else {
+                make.bottom.equalTo(pointView.mas_top).with.offset(-2);
+            }
         }];
     }
+
+
+//    _checkers = [NSMutableArray array];
+//
+//    for (NSInteger i = 0; i < 30; ++i) {
+//
+//        CheckerView *view = [[CheckerView alloc] initWithFrame:CGRectZero];
+//
+//        view.color = CheckerColorRed : CheckerColorBlack;
+//
+//        [self addSubview:view];
+//
+//        [_checkers addObject:view];
+//
+//    }
+
     
     return self;
 }
+
+- (void)highlightSelectionAtIndex:(NSInteger)index
+{
+    PointView *view = [self.points bk_match:^BOOL(PointView *pointView) {
+
+        return pointView.pointIndex == index;
+    }];
+
+    view.hightlightColor = PointHighlightColorSelected;
+}
+
+- (void)highlightAllowedMoveAtIndex:(NSInteger)index
+{
+    PointView *view = [self.points bk_match:^BOOL(PointView *pointView) {
+
+        return pointView.pointIndex == index;
+    }];
+
+    [[self.points bk_reject:^BOOL(PointView *pointView) {
+
+        return pointView.pointIndex == index || pointView.hightlightColor == PointHighlightColorSelected;
+
+    }] bk_each:^(PointView *pointView) {
+
+        pointView.hightlightColor = PointHighlightColorNone;
+    }];
+
+    view.hightlightColor = PointHighlightColorAllowed;
+}
+
+- (void)highlightForbiddenMoveAtIndex:(NSInteger)index
+{
+
+}
+
+
 
 @end

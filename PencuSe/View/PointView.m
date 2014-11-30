@@ -10,10 +10,10 @@
 
 @interface PointView ()
 
+@property (nonatomic) CALayer *overlayLayer;
 @property (nonatomic, readonly) CAShapeLayer *layer;
 
 - (UIBezierPath *)pathForPointDirection:(PointDirection)pointDirection;
-- (UIColor *)colorForPointColor:(PointColor)pointColor;
 
 @end
 
@@ -37,11 +37,9 @@
         return nil;
     }
 
-    self.layer.backgroundColor = [UIColor colorWithRed:0.222
-                                                 green:0.212
-                                                  blue:0.197
-                                                 alpha:1].CGColor;
+    self.layer.backgroundColor = [UIColor boardInteriorColor].CGColor;
     self.layer.delegate = self;
+
     return self;
 }
 
@@ -79,19 +77,16 @@
     return path;
 }
 
-- (UIColor *)colorForPointColor:(PointColor)pointColor
+- (void)highlightColor:(PointHighlightColor)highlightColor
 {
-    UIColor *color;
-    switch (pointColor) {
-        case PointColorRed:
-            color = [UIColor colorWithRed:0.863 green:0.131 blue:0.052 alpha:1];
-            break;
-        case PointColorWhite:
-            color = [UIColor colorWithRed:0.999 green:1 blue:1 alpha:1];
-            break;
-    }
+    self.overlayLayer.opacity = 0.2;
+    self.overlayLayer.backgroundColor = [UIColor colorForPointHighlightColor:highlightColor].CGColor;
+}
 
-    return color;
+- (void)unhighlight
+{
+    self.overlayLayer.opacity = 0;
+    self.overlayLayer.backgroundColor = [UIColor clearColor].CGColor;
 }
 
 #pragma mark - Accessors
@@ -106,12 +101,48 @@
     _pointColor = pointColor;
 }
 
+- (void)setHightlightColor:(PointHighlightColor)hightlightColor
+{
+    _hightlightColor = hightlightColor;
+
+
+    switch (hightlightColor) {
+        case PointHighlightColorNone:
+
+            self.overlayLayer.opacity = 0;
+            self.overlayLayer.backgroundColor = [UIColor clearColor].CGColor;
+            break;
+
+        case PointHighlightColorAllowed:
+        case PointHighlightColorForbidden:
+        case PointHighlightColorSelected:
+            self.overlayLayer.opacity = 0.2;
+            self.overlayLayer.backgroundColor = [UIColor
+                                                 colorForPointHighlightColor:hightlightColor].CGColor;
+            break;
+        default:
+            break;
+    }
+}
+
+- (CALayer *)overlayLayer
+{
+    if (!_overlayLayer) {
+        _overlayLayer = [CALayer layer];
+        [self.layer addSublayer:_overlayLayer];
+        _overlayLayer.frame = self.layer.bounds;
+    }
+
+    return _overlayLayer;
+}
+
 #pragma mark - CALayerDelegate
 
 - (void)layoutSublayersOfLayer:(CALayer *)layer
 {
-    self.layer.fillColor = [self colorForPointColor:self.pointColor].CGColor;
+    self.layer.fillColor = [UIColor colorForPointColor:self.pointColor].CGColor;
     self.layer.path = [self pathForPointDirection:self.pointDirection].CGPath;
+    self.overlayLayer.frame = self.layer.bounds;
 }
 
 @end

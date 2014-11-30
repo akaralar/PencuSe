@@ -7,20 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIColor+PencuSeAdditions.h"
 
 typedef NS_ENUM(NSInteger, PointDirection) {
     PointDirectionUp,
     PointDirectionDown
 };
 
-typedef NS_ENUM(NSInteger, PointColor) {
-    PointColorRed,
-    PointColorWhite
-};
-
 @interface PointView : UIView
 
 @property (nonatomic) PointDirection pointDirection;
 @property (nonatomic) PointColor pointColor;
+@property (nonatomic) PointHighlightColor hightlightColor;
+@property (nonatomic) NSInteger pointIndex;
 
 @end
