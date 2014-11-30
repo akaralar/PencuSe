@@ -8,7 +8,7 @@
 
 #import "MenuViewController.h"
 #import "Masonry.h"
-#import "BoardViewController.h"
+#import "GameViewController.h"
 
 typedef NS_ENUM(NSInteger, MenuButtonIndex) {
     MenuButtonIndexMultiplayer,
@@ -107,8 +107,9 @@ typedef NS_ENUM(NSInteger, MenuButtonIndex) {
 
 - (void)startMultiplayerGame
 {
-    BoardViewController *controller = [[BoardViewController alloc]
-                                       initWithGameMode:GameModeMultiplayer];
+    GameViewController *controller = [[GameViewController alloc]
+                                      initWithGameMode:GameModeMultiplayer];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end

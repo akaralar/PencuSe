@@ -14,9 +14,17 @@
 
 @implementation BoardViewController
 
+- (void)viewWillTransitionToSize:(CGSize)size
+       withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
+{
+    NSLog(@"%@", NSStringFromCGSize(size));
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    self.view.backgroundColor = [UIColor yellowColor];
 
 }
 @end

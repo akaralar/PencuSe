@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2C6CC67BCE2B93570C5FEAB3 /* libPods-PencuSe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36ADC8F1F68B50512A8E6527 /* libPods-PencuSe.a */; };
+		570CE5181A2A680100175385 /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 570CE5171A2A680100175385 /* BoardView.m */; };
+		570CE51E1A2A6B0500175385 /* PointView.m in Sources */ = {isa = PBXBuildFile; fileRef = 570CE51D1A2A6B0500175385 /* PointView.m */; };
+		570CE5211A2A6B1300175385 /* CheckerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 570CE5201A2A6B1300175385 /* CheckerView.m */; };
+		570CE5241A2A853400175385 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570CE5231A2A853400175385 /* GameViewController.m */; };
+		570CE5271A2A854100175385 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570CE5261A2A854100175385 /* DashboardViewController.m */; };
 		576167951A2A407E0001B503 /* Warnings.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 576167941A2A407E0001B503 /* Warnings.xcconfig */; };
 		5782FF8E1A2A3799004DDA2F /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5782FF8D1A2A3799004DDA2F /* BaseViewController.m */; };
 		5782FF911A2A37BC004DDA2F /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5782FF901A2A37BC004DDA2F /* MenuViewController.m */; };
@@ -32,6 +37,16 @@
 
 /* Begin PBXFileReference section */
 		36ADC8F1F68B50512A8E6527 /* libPods-PencuSe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PencuSe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		570CE5161A2A680100175385 /* BoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardView.h; sourceTree = "<group>"; };
+		570CE5171A2A680100175385 /* BoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardView.m; sourceTree = "<group>"; };
+		570CE51C1A2A6B0500175385 /* PointView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointView.h; sourceTree = "<group>"; };
+		570CE51D1A2A6B0500175385 /* PointView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointView.m; sourceTree = "<group>"; };
+		570CE51F1A2A6B1300175385 /* CheckerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckerView.h; sourceTree = "<group>"; };
+		570CE5201A2A6B1300175385 /* CheckerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckerView.m; sourceTree = "<group>"; };
+		570CE5221A2A853400175385 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		570CE5231A2A853400175385 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		570CE5251A2A854100175385 /* DashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
+		570CE5261A2A854100175385 /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
 		576167941A2A407E0001B503 /* Warnings.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Warnings.xcconfig; sourceTree = "<group>"; };
 		5782FF8C1A2A3799004DDA2F /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		5782FF8D1A2A3799004DDA2F /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
@@ -86,6 +101,12 @@
 		5782FF881A2A3375004DDA2F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				570CE5161A2A680100175385 /* BoardView.h */,
+				570CE5171A2A680100175385 /* BoardView.m */,
+				570CE51C1A2A6B0500175385 /* PointView.h */,
+				570CE51D1A2A6B0500175385 /* PointView.m */,
+				570CE51F1A2A6B1300175385 /* CheckerView.h */,
+				570CE5201A2A6B1300175385 /* CheckerView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -99,6 +120,10 @@
 				5782FF901A2A37BC004DDA2F /* MenuViewController.m */,
 				5782FF921A2A37CF004DDA2F /* BoardViewController.h */,
 				5782FF931A2A37CF004DDA2F /* BoardViewController.m */,
+				570CE5221A2A853400175385 /* GameViewController.h */,
+				570CE5231A2A853400175385 /* GameViewController.m */,
+				570CE5251A2A854100175385 /* DashboardViewController.h */,
+				570CE5261A2A854100175385 /* DashboardViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -283,12 +308,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				570CE5241A2A853400175385 /* GameViewController.m in Sources */,
 				57BE05021A2A564000ED927D /* BaseModel.m in Sources */,
 				5782FF8E1A2A3799004DDA2F /* BaseViewController.m in Sources */,
 				57CCCCB51A2A2AFB00C3E839 /* AppDelegate.m in Sources */,
+				570CE51E1A2A6B0500175385 /* PointView.m in Sources */,
+				570CE5271A2A854100175385 /* DashboardViewController.m in Sources */,
+				570CE5211A2A6B1300175385 /* CheckerView.m in Sources */,
 				5782FF941A2A37CF004DDA2F /* BoardViewController.m in Sources */,
 				57CCCCB21A2A2AFB00C3E839 /* main.m in Sources */,
 				5782FF911A2A37BC004DDA2F /* MenuViewController.m in Sources */,
+				570CE5181A2A680100175385 /* BoardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,7 +432,7 @@
 		};
 		57CCCCD01A2A2AFB00C3E839 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C3AA8D41CF70FD6473707723 /* Pods-PencuSe.debug.xcconfig */;
+			baseConfigurationReference = 576167941A2A407E0001B503 /* Warnings.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
