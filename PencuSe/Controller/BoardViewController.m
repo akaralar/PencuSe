@@ -17,14 +17,17 @@
 - (void)viewWillTransitionToSize:(CGSize)size
        withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
 {
-    NSLog(@"%@", NSStringFromCGSize(size));
+
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    self.view.backgroundColor = [UIColor yellowColor];
-
+    self.view.backgroundColor = [UIColor colorWithRed:(CGFloat)0.563
+                                                green:(CGFloat)0.332
+                                                 blue:(CGFloat)0.264
+                                                alpha:1];
 }
+
 @end
