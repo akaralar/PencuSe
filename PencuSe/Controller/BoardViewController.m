@@ -7,8 +7,13 @@
 //
 
 #import "BoardViewController.h"
+#import "BoardView.h"
+#import "Masonry.h"
+#import "PointView.h"
 
 @interface BoardViewController ()
+
+@property (nonatomic) BoardView *boardView;
 
 @end
 
@@ -24,10 +29,14 @@
 {
     [super viewDidLoad];
 
-    self.view.backgroundColor = [UIColor colorWithRed:(CGFloat)0.563
-                                                green:(CGFloat)0.332
-                                                 blue:(CGFloat)0.264
-                                                alpha:1];
+    self.view.backgroundColor = [UIColor whiteColor];
+
+    self.boardView = [[BoardView alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:self.boardView];
+
+    [self.boardView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
 }
 
 @end

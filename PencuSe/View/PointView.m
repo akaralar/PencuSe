@@ -24,18 +24,28 @@
     return [CAShapeLayer class];
 }
 
-- (void)setPointDirection:(PointDirection)pointDirection
++ (BOOL)requiresConstraintBasedLayout
 {
-    _pointDirection = pointDirection;
-
-
-
+    return YES;
 }
 
-- (void)setPointColor:(PointColor)pointColor
+- (instancetype)initWithFrame:(CGRect)frame
 {
+    self = [super initWithFrame:frame];
 
+    if (!self) {
+        return nil;
+    }
+
+    self.layer.backgroundColor = [UIColor colorWithRed:0.222
+                                                 green:0.212
+                                                  blue:0.197
+                                                 alpha:1].CGColor;
+    self.layer.delegate = self;
+    return self;
 }
+
+#pragma mark - Convenience
 
 - (UIBezierPath *)pathForPointDirection:(PointDirection)direction
 {
@@ -44,6 +54,7 @@
     switch (direction) {
 
         case PointDirectionUp:
+
             vertice1 = CGPointMake(0, self.bounds.size.height);
             vertice2 = CGPointMake(self.bounds.size.width / 2, 0);
             vertice3 = CGPointMake(self.bounds.size.width, self.bounds.size.height);
@@ -81,6 +92,26 @@
     }
 
     return color;
+}
+
+#pragma mark - Accessors
+
+- (void)setPointDirection:(PointDirection)pointDirection
+{
+    _pointDirection = pointDirection;
+}
+
+- (void)setPointColor:(PointColor)pointColor
+{
+    _pointColor = pointColor;
+}
+
+#pragma mark - CALayerDelegate
+
+- (void)layoutSublayersOfLayer:(CALayer *)layer
+{
+    self.layer.fillColor = [self colorForPointColor:self.pointColor].CGColor;
+    self.layer.path = [self pathForPointDirection:self.pointDirection].CGPath;
 }
 
 @end

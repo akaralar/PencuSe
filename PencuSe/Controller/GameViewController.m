@@ -44,26 +44,15 @@
 
 #pragma mark - View Lifecycle
 
-- (void)loadView
-{
-    UIView *view = [[UIView alloc] init];
-    view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    view.backgroundColor = [UIColor darkGrayColor];
-
-    self.boardContainerView = [[UIView alloc] initWithFrame:CGRectZero];
-    [view addSubview:self.boardContainerView];
-
-    self.dashboardContainerView = [[UIView alloc] initWithFrame:CGRectZero];
-    [view addSubview:_dashboardContainerView];
-
-    self.view = view;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    [self setupConstraints];
+    self.boardContainerView = [[UIView alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:self.boardContainerView];
+
+    self.dashboardContainerView = [[UIView alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:self.dashboardContainerView];
 
     self.boardController = [[BoardViewController alloc] init];
     [self addChildViewController:self.boardController];
@@ -74,6 +63,8 @@
     [self addChildViewController:self.dashboardController];
     [self.dashboardContainerView addSubview:self.dashboardController.view];
     [self.dashboardController didMoveToParentViewController:self];
+
+    [self setupConstraints];
 }
 
 #pragma mark - Rotation Handling
@@ -95,6 +86,7 @@
 
 - (void)setupConstraints
 {
+
     CGSize size = [UIScreen mainScreen].bounds.size;
 
     if (size.width > size.height) {
@@ -105,6 +97,16 @@
 
         [self setupVerticalLayout];
     }
+
+    [self.boardController.view mas_remakeConstraints:^(MASConstraintMaker *make) {
+
+        make.edges.equalTo(self.boardContainerView);
+    }];
+
+    [self.dashboardController.view mas_remakeConstraints:^(MASConstraintMaker *make) {
+
+        make.edges.equalTo(self.dashboardContainerView);
+    }];
 }
 
 - (void)setupHorizontalLayout
