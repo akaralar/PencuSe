@@ -7,11 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIColor+PencuSeAdditions.h"
+
+@class CheckerView;
 
 @interface BoardView : UIView
 
-- (void)highlightSelectionAtIndex:(NSInteger)index;
-- (void)highlightAllowedMoveAtIndex:(NSInteger)index;
-- (void)highlightForbiddenMoveAtIndex:(NSInteger)index;
+@property (nonatomic, readonly) NSArray *checkerViews;
+
+- (void)highlightIndex:(NSInteger)index withColor:(PointHighlightColor)highlightColor;
+- (void)unhighlightAll;
+
+- (void)placeChecker:(CheckerView *)checker atIndex:(NSInteger)index animated:(BOOL)animated;
 
 @end

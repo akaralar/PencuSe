@@ -27,6 +27,12 @@ static const CGFloat kPointHeightToTotalHeightRatio = 0.45;
 @property (nonatomic) NSMutableArray *points;
 @property (nonatomic) NSMutableArray *checkers;
 
+@property (nonatomic) CheckerView *selectedCheckerView;
+
+- (PointView *)pointViewAtIndex:(NSInteger)index;
+- (void)willHighlightIndex:(NSInteger)index;
+
+- (CheckerView *)topCheckerAtIndex:(NSInteger)index;
 @end
 
 @implementation BoardView
@@ -112,8 +118,21 @@ static const CGFloat kPointHeightToTotalHeightRatio = 0.45;
     }
 
 
-//    _checkers = [NSMutableArray array];
-//
+    _checkers = [NSMutableArray array];
+
+    CheckerView *checker = [[CheckerView alloc] initWithFrame:CGRectZero];
+
+    checker.color = CheckerColorRed;
+
+    [self addSubview:checker];
+    [_checkers addObject:checker];
+
+    [checker mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.and.height.equalTo(self.mas_width).multipliedBy(kPointWidthToTotalWidthRatio);
+        make.center.equalTo([self pointViewAtIndex:0]);
+    }];
+
+
 //    for (NSInteger i = 0; i < 30; ++i) {
 //
 //        CheckerView *view = [[CheckerView alloc] initWithFrame:CGRectZero];
@@ -130,23 +149,41 @@ static const CGFloat kPointHeightToTotalHeightRatio = 0.45;
     return self;
 }
 
-- (void)highlightSelectionAtIndex:(NSInteger)index
+- (void)highlightIndex:(NSInteger)index withColor:(PointHighlightColor)highlightColor
 {
-    PointView *view = [self.points bk_match:^BOOL(PointView *pointView) {
+    switch (highlightColor) {
+        case PointHighlightColorNone:
 
-        return pointView.pointIndex == index;
-    }];
+            break;
+        case PointHighlightColorSelected:
+            [self unhighlightAll];
+            break;
+        case PointHighlightColorAllowed:
+        case PointHighlightColorForbidden:
+            [self willHighlightIndex:index];
+            break;
+    }
 
-    view.hightlightColor = PointHighlightColorSelected;
+    [self pointViewAtIndex:index].hightlightColor = highlightColor;
 }
 
-- (void)highlightAllowedMoveAtIndex:(NSInteger)index
+- (void)unhighlightAll
 {
-    PointView *view = [self.points bk_match:^BOOL(PointView *pointView) {
+    [self.points bk_each:^(PointView *pointView) {
 
+        pointView.hightlightColor = PointHighlightColorNone;
+    }];
+}
+
+- (PointView *)pointViewAtIndex:(NSInteger)index
+{
+    return [self.points bk_match:^BOOL(PointView *pointView) {
         return pointView.pointIndex == index;
     }];
+}
 
+- (void)willHighlightIndex:(NSInteger)index
+{
     [[self.points bk_reject:^BOOL(PointView *pointView) {
 
         return pointView.pointIndex == index || pointView.hightlightColor == PointHighlightColorSelected;
@@ -155,15 +192,102 @@ static const CGFloat kPointHeightToTotalHeightRatio = 0.45;
 
         pointView.hightlightColor = PointHighlightColorNone;
     }];
-
-    view.hightlightColor = PointHighlightColorAllowed;
 }
 
-- (void)highlightForbiddenMoveAtIndex:(NSInteger)index
+- (void)placeChecker:(CheckerView *)checker atIndex:(NSInteger)index animated:(BOOL)animated
 {
+    PointView *pointView = [self pointViewAtIndex:index];
 
+    [checker mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(pointView);
+        make.centerY.equalTo(pointView);
+    }];
 }
 
+- (CheckerView *)topCheckerAtIndex:(NSInteger)index
+{
+    return [[self.checkers bk_select:^BOOL(CheckerView *checkerView) {
 
+        PointView *pointView = [self pointViewAtIndex:index];
+
+        CGPoint checkerCenter = [pointView convertPoint:checkerView.center
+                                               fromView:self];
+
+        return [pointView pointInside:checkerCenter withEvent:nil];
+    }] lastObject];
+}
+
+#pragma mark - Touch Handling
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    PointView *pointView = [self.points bk_match:^BOOL(PointView *point) {
+
+        return [point pointInside:[touch locationInView:point]
+                        withEvent:event];
+    }];
+
+    [self highlightIndex:pointView.pointIndex
+               withColor:PointHighlightColorSelected];
+
+
+    self.selectedCheckerView = [self topCheckerAtIndex:pointView.pointIndex];
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    CGPoint center = [touch locationInView:self];
+
+    self.selectedCheckerView.center = center;
+
+    PointView *pointView = [self.points bk_match:^BOOL(PointView *point) {
+
+        return [point pointInside:[touch locationInView:point]
+                        withEvent:event];
+    }];
+
+    [self highlightIndex:pointView.pointIndex
+               withColor:PointHighlightColorAllowed];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+
+    PointView *pointView = [self.points bk_match:^BOOL(PointView *point) {
+
+        return [point pointInside:[touch locationInView:point]
+                        withEvent:event];
+    }];
+
+    [self.selectedCheckerView mas_remakeConstraints:^(MASConstraintMaker *make) {
+
+        make.width.and.height.equalTo(self.mas_width).multipliedBy(kPointWidthToTotalWidthRatio);
+        make.center.equalTo(pointView);
+    }];
+
+    [UIView animateWithDuration:0.2 animations:^{
+        [self layoutIfNeeded];
+    }];
+
+    self.selectedCheckerView = nil;
+
+    [self unhighlightAll];
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+//    NSLog(@"%@\n\n%@", touches, event);
+}
+
+#pragma mark - Accessors
+
+- (NSArray *)checkerViews
+{
+    return [self.checkers copy];
+}
 
 @end

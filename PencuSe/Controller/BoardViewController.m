@@ -10,23 +10,17 @@
 #import "BoardView.h"
 #import "Masonry.h"
 #import "PointView.h"
+#import "CheckerView.h"
+#import "BlocksKit.h"
 
 @interface BoardViewController ()
 
 @property (nonatomic) BoardView *boardView;
 @property (nonatomic) NSArray *checkers;
 
-- (void)handleCheckerPan:(UIPanGestureRecognizer *)recognizer;
-
 @end
 
 @implementation BoardViewController
-
-- (void)viewWillTransitionToSize:(CGSize)size
-       withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
-{
-
-}
 
 - (void)viewDidLoad
 {
@@ -41,15 +35,15 @@
         make.edges.equalTo(self.view);
     }];
 
-    
-    [self.boardView highlightAllowedMoveAtIndex:5];
-    [self.boardView highlightAllowedMoveAtIndex:8];
-    
-}
+    for (NSInteger i = 0; i < 2; ++i) {
 
-- (void)handleCheckerPan:(UIPanGestureRecognizer *)recognizer
-{
-    NSLog(@"%@", recognizer);
+        for (NSInteger j = 0; j < 15; ++j) {
+
+        }
+    }
+
+
+
 }
 
 @end

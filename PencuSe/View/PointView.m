@@ -116,7 +116,7 @@
         case PointHighlightColorAllowed:
         case PointHighlightColorForbidden:
         case PointHighlightColorSelected:
-            self.overlayLayer.opacity = 0.2;
+            self.overlayLayer.opacity = 0.4;
             self.overlayLayer.backgroundColor = [UIColor
                                                  colorForPointHighlightColor:hightlightColor].CGColor;
             break;
@@ -128,6 +128,7 @@
 - (CALayer *)overlayLayer
 {
     if (!_overlayLayer) {
+
         _overlayLayer = [CALayer layer];
         [self.layer addSublayer:_overlayLayer];
         _overlayLayer.frame = self.layer.bounds;
