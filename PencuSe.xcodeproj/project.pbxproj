@@ -23,6 +23,9 @@
 		57CCCCBD1A2A2AFB00C3E839 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57CCCCBC1A2A2AFB00C3E839 /* Images.xcassets */; };
 		57CCCCC01A2A2AFB00C3E839 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57CCCCBE1A2A2AFB00C3E839 /* LaunchScreen.xib */; };
 		57CCCCCC1A2A2AFB00C3E839 /* PencuSeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CCCCCB1A2A2AFB00C3E839 /* PencuSeTests.m */; };
+		57DB4E861A2E77D000A1D4F9 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DB4E851A2E77D000A1D4F9 /* Game.m */; };
+		57DB4E891A2E781300A1D4F9 /* Checker.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DB4E881A2E781300A1D4F9 /* Checker.m */; };
+		57DB4E901A2E904300A1D4F9 /* Move.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DB4E8F1A2E904300A1D4F9 /* Move.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +71,12 @@
 		57CCCCC51A2A2AFB00C3E839 /* PencuSeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PencuSeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		57CCCCCA1A2A2AFB00C3E839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57CCCCCB1A2A2AFB00C3E839 /* PencuSeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PencuSeTests.m; sourceTree = "<group>"; };
+		57DB4E841A2E77D000A1D4F9 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		57DB4E851A2E77D000A1D4F9 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		57DB4E871A2E781300A1D4F9 /* Checker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Checker.h; sourceTree = "<group>"; };
+		57DB4E881A2E781300A1D4F9 /* Checker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Checker.m; sourceTree = "<group>"; };
+		57DB4E8E1A2E904300A1D4F9 /* Move.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Move.h; sourceTree = "<group>"; };
+		57DB4E8F1A2E904300A1D4F9 /* Move.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Move.m; sourceTree = "<group>"; };
 		87AAAA9DBCD776044ADD47D3 /* Pods-PencuSe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PencuSe.release.xcconfig"; path = "Pods/Target Support Files/Pods-PencuSe/Pods-PencuSe.release.xcconfig"; sourceTree = "<group>"; };
 		C3AA8D41CF70FD6473707723 /* Pods-PencuSe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PencuSe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PencuSe/Pods-PencuSe.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +105,12 @@
 			children = (
 				57BE05001A2A564000ED927D /* BaseModel.h */,
 				57BE05011A2A564000ED927D /* BaseModel.m */,
+				57DB4E841A2E77D000A1D4F9 /* Game.h */,
+				57DB4E851A2E77D000A1D4F9 /* Game.m */,
+				57DB4E871A2E781300A1D4F9 /* Checker.h */,
+				57DB4E881A2E781300A1D4F9 /* Checker.m */,
+				57DB4E8E1A2E904300A1D4F9 /* Move.h */,
+				57DB4E8F1A2E904300A1D4F9 /* Move.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -312,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57DB4E861A2E77D000A1D4F9 /* Game.m in Sources */,
 				570CE5241A2A853400175385 /* GameViewController.m in Sources */,
 				57BE05021A2A564000ED927D /* BaseModel.m in Sources */,
 				5782FF8E1A2A3799004DDA2F /* BaseViewController.m in Sources */,
@@ -319,9 +335,11 @@
 				57CCCCB51A2A2AFB00C3E839 /* AppDelegate.m in Sources */,
 				570CE51E1A2A6B0500175385 /* PointView.m in Sources */,
 				570CE5271A2A854100175385 /* DashboardViewController.m in Sources */,
+				57DB4E901A2E904300A1D4F9 /* Move.m in Sources */,
 				570CE5211A2A6B1300175385 /* CheckerView.m in Sources */,
 				5782FF941A2A37CF004DDA2F /* BoardViewController.m in Sources */,
 				57CCCCB21A2A2AFB00C3E839 /* main.m in Sources */,
+				57DB4E891A2E781300A1D4F9 /* Checker.m in Sources */,
 				5782FF911A2A37BC004DDA2F /* MenuViewController.m in Sources */,
 				570CE5181A2A680100175385 /* BoardView.m in Sources */,
 			);

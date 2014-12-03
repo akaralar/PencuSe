@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger, CheckerColor) {
-    CheckerColorRed,
-    CheckerColorBlack
-};
+// import Checker for CheckerColor typedef
+#import "Checker.h"
 
 typedef NS_ENUM(NSInteger, PointColor) {
     PointColorRed,
@@ -33,6 +31,5 @@ typedef NS_ENUM(NSInteger, PointHighlightColor) {
 + (UIColor *)colorForCheckerColor:(CheckerColor)checkerColor;
 + (UIColor *)colorForPointColor:(PointColor)pointColor;
 + (UIColor *)colorForPointHighlightColor:(PointHighlightColor)highlightColor;
-
 
 @end

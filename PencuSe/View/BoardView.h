@@ -13,11 +13,19 @@
 
 @interface BoardView : UIView
 
+@property (nonatomic, readonly) NSArray *pointViews;
 @property (nonatomic, readonly) NSArray *checkerViews;
+@property (nonatomic, readonly) CheckerView *selectedCheckerView;
 
 - (void)highlightIndex:(NSInteger)index withColor:(PointHighlightColor)highlightColor;
+- (void)selectTopCheckerAtIndex:(NSInteger)index;
+- (void)deselectChecker;
 - (void)unhighlightAll;
 
-- (void)placeChecker:(CheckerView *)checker atIndex:(NSInteger)index animated:(BOOL)animated;
+- (void)placeChecker:(CheckerView *)checker
+             atIndex:(NSInteger)index
+            animated:(BOOL)animated;
+
+- (NSInteger)pointViewIndexForTouch:(UITouch *)touch withEvent:(UIEvent *)event;
 
 @end

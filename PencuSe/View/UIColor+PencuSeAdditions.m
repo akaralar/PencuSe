@@ -12,18 +12,12 @@
 
 + (UIColor *)boardInteriorColor
 {
-    return [UIColor colorWithRed:0.222
-                           green:0.212
-                            blue:0.197
-                           alpha:1];
+    return [UIColor colorWithRed:0.222 green:0.212 blue:0.197 alpha:1];
 }
 
 + (UIColor *)boardWoodColor
 {
-    return [UIColor colorWithRed:0.563
-                           green:0.332
-                            blue:0.264
-                           alpha:1];
+    return [UIColor colorWithRed:0.563 green:0.332 blue:0.264 alpha:1];
 }
 
 + (UIColor *)colorForPointColor:(PointColor)pointColor

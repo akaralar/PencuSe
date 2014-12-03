@@ -125,6 +125,8 @@
     }
 }
 
+#pragma mark - Accessors
+
 - (CALayer *)overlayLayer
 {
     if (!_overlayLayer) {
