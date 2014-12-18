@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-// import Checker for CheckerColor typedef
+// import Checker for CheckerColor enum
 #import "Checker.h"
 
 typedef NS_ENUM(NSInteger, PointColor) {

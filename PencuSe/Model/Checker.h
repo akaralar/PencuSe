@@ -9,13 +9,17 @@
 #import "BaseModel.h"
 
 typedef NS_ENUM(NSInteger, CheckerColor) {
-    CheckerColorRed,
-    CheckerColorBlack
+    CheckerColorRed = 1,
+    CheckerColorBlack = 2
 };
+
+const NSInteger kBarIndex;
+const NSInteger kBearedOffIndex;
 
 @interface Checker : BaseModel
 
 @property (nonatomic) CheckerColor color;
 @property (nonatomic) NSInteger index;
+@property (nonatomic, readonly) NSInteger pipsToBearOff;
 
 @end

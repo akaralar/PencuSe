@@ -10,6 +10,7 @@
 #import "BoardViewController.h"
 #import "DashboardViewController.h"
 #import "Masonry.h"
+#import "GameEngine.h"
 
 @interface GameViewController ()
 
@@ -65,6 +66,9 @@
     [self.dashboardController didMoveToParentViewController:self];
 
     [self setupConstraints];
+
+    GameEngine *engine = [GameEngine sharedEngine];
+    [engine newGame];
 }
 
 #pragma mark - Rotation Handling
@@ -144,6 +148,26 @@
 - (BOOL)prefersStatusBarHidden
 {
     return YES;
+}
+
+#pragma mark - Shake Gesture
+
+- (BOOL)canBecomeFirstResponder
+{
+    return YES;
+}
+
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    if (motion == UIEventSubtypeMotionShake)
+    {
+        [self didShakeDevice];
+    } 
+}
+
+- (void)didShakeDevice
+{
+    [[GameEngine sharedEngine] roll];
 }
 
 @end

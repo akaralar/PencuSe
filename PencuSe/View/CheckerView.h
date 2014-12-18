@@ -12,5 +12,7 @@
 @interface CheckerView : UIView
 
 @property (nonatomic) CheckerColor color;
+@property (nonatomic) NSInteger index;
+@property (nonatomic) UILabel *countLabel; // when there are more than 1 checker at the same space
 
 @end

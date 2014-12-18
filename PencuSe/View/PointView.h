@@ -6,19 +6,26 @@
 //  Copyright (c) 2014 Ahmet Karalar. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "UIColor+PencuSeAdditions.h"
+#import "BoardSlotView.h"
 
 typedef NS_ENUM(NSInteger, PointDirection) {
     PointDirectionUp,
     PointDirectionDown
 };
 
-@interface PointView : UIView
+@class CheckerView;
 
-@property (nonatomic) PointDirection pointDirection;
-@property (nonatomic) PointColor pointColor;
-@property (nonatomic) PointHighlightColor hightlightColor;
-@property (nonatomic) NSInteger pointIndex;
+@interface PointView : BoardSlotView
+
+@property (nonatomic, readonly) PointDirection pointDirection;
+@property (nonatomic, readonly) PointColor pointColor;
+
+- (instancetype)initWithPointDirection:(PointDirection)direction
+                            pointColor:(PointColor)color
+                            pointIndex:(NSInteger)index;
+
+- (void)insertCheckerView:(CheckerView *)checkerView animated:(BOOL)animated;
+- (void)removeCheckerView:(CheckerView *)checkerView;
+- (CheckerView *)topCheckerView;
 
 @end

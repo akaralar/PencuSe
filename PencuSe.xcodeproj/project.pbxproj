@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		2C6CC67BCE2B93570C5FEAB3 /* libPods-PencuSe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36ADC8F1F68B50512A8E6527 /* libPods-PencuSe.a */; };
+		57079F5D1A426B5200EBAC44 /* BoardSlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57079F5C1A426B5200EBAC44 /* BoardSlotView.m */; };
+		57079F601A426B8A00EBAC44 /* BarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57079F5F1A426B8A00EBAC44 /* BarView.m */; };
+		57079F631A426B9800EBAC44 /* HomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57079F621A426B9800EBAC44 /* HomeView.m */; };
 		570CE5181A2A680100175385 /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 570CE5171A2A680100175385 /* BoardView.m */; };
 		570CE51E1A2A6B0500175385 /* PointView.m in Sources */ = {isa = PBXBuildFile; fileRef = 570CE51D1A2A6B0500175385 /* PointView.m */; };
 		570CE5211A2A6B1300175385 /* CheckerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 570CE5201A2A6B1300175385 /* CheckerView.m */; };
 		570CE5241A2A853400175385 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570CE5231A2A853400175385 /* GameViewController.m */; };
 		570CE5271A2A854100175385 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 570CE5261A2A854100175385 /* DashboardViewController.m */; };
+		5740D1ED1A30F86400CDE5E4 /* GameEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 5740D1EC1A30F86400CDE5E4 /* GameEngine.m */; };
 		574D1D651A2BB1F600A876F4 /* UIColor+PencuSeAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 574D1D641A2BB1F600A876F4 /* UIColor+PencuSeAdditions.m */; };
 		5782FF8E1A2A3799004DDA2F /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5782FF8D1A2A3799004DDA2F /* BaseViewController.m */; };
 		5782FF911A2A37BC004DDA2F /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5782FF901A2A37BC004DDA2F /* MenuViewController.m */; };
@@ -40,6 +44,12 @@
 
 /* Begin PBXFileReference section */
 		36ADC8F1F68B50512A8E6527 /* libPods-PencuSe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PencuSe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		57079F5B1A426B5200EBAC44 /* BoardSlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardSlotView.h; sourceTree = "<group>"; };
+		57079F5C1A426B5200EBAC44 /* BoardSlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardSlotView.m; sourceTree = "<group>"; };
+		57079F5E1A426B8A00EBAC44 /* BarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarView.h; sourceTree = "<group>"; };
+		57079F5F1A426B8A00EBAC44 /* BarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarView.m; sourceTree = "<group>"; };
+		57079F611A426B9800EBAC44 /* HomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeView.h; sourceTree = "<group>"; };
+		57079F621A426B9800EBAC44 /* HomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeView.m; sourceTree = "<group>"; };
 		570CE5161A2A680100175385 /* BoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardView.h; sourceTree = "<group>"; };
 		570CE5171A2A680100175385 /* BoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardView.m; sourceTree = "<group>"; };
 		570CE51C1A2A6B0500175385 /* PointView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointView.h; sourceTree = "<group>"; };
@@ -50,6 +60,8 @@
 		570CE5231A2A853400175385 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		570CE5251A2A854100175385 /* DashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
 		570CE5261A2A854100175385 /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
+		5740D1EB1A30F86400CDE5E4 /* GameEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameEngine.h; sourceTree = "<group>"; };
+		5740D1EC1A30F86400CDE5E4 /* GameEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameEngine.m; sourceTree = "<group>"; };
 		574D1D631A2BB1F600A876F4 /* UIColor+PencuSeAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+PencuSeAdditions.h"; sourceTree = "<group>"; };
 		574D1D641A2BB1F600A876F4 /* UIColor+PencuSeAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+PencuSeAdditions.m"; sourceTree = "<group>"; };
 		576167941A2A407E0001B503 /* Warnings.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Warnings.xcconfig; sourceTree = "<group>"; };
@@ -111,6 +123,8 @@
 				57DB4E881A2E781300A1D4F9 /* Checker.m */,
 				57DB4E8E1A2E904300A1D4F9 /* Move.h */,
 				57DB4E8F1A2E904300A1D4F9 /* Move.m */,
+				5740D1EB1A30F86400CDE5E4 /* GameEngine.h */,
+				5740D1EC1A30F86400CDE5E4 /* GameEngine.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -126,6 +140,12 @@
 				570CE5201A2A6B1300175385 /* CheckerView.m */,
 				574D1D631A2BB1F600A876F4 /* UIColor+PencuSeAdditions.h */,
 				574D1D641A2BB1F600A876F4 /* UIColor+PencuSeAdditions.m */,
+				57079F5B1A426B5200EBAC44 /* BoardSlotView.h */,
+				57079F5C1A426B5200EBAC44 /* BoardSlotView.m */,
+				57079F5E1A426B8A00EBAC44 /* BarView.h */,
+				57079F5F1A426B8A00EBAC44 /* BarView.m */,
+				57079F611A426B9800EBAC44 /* HomeView.h */,
+				57079F621A426B9800EBAC44 /* HomeView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -334,13 +354,17 @@
 				574D1D651A2BB1F600A876F4 /* UIColor+PencuSeAdditions.m in Sources */,
 				57CCCCB51A2A2AFB00C3E839 /* AppDelegate.m in Sources */,
 				570CE51E1A2A6B0500175385 /* PointView.m in Sources */,
+				5740D1ED1A30F86400CDE5E4 /* GameEngine.m in Sources */,
 				570CE5271A2A854100175385 /* DashboardViewController.m in Sources */,
 				57DB4E901A2E904300A1D4F9 /* Move.m in Sources */,
 				570CE5211A2A6B1300175385 /* CheckerView.m in Sources */,
 				5782FF941A2A37CF004DDA2F /* BoardViewController.m in Sources */,
 				57CCCCB21A2A2AFB00C3E839 /* main.m in Sources */,
+				57079F5D1A426B5200EBAC44 /* BoardSlotView.m in Sources */,
 				57DB4E891A2E781300A1D4F9 /* Checker.m in Sources */,
 				5782FF911A2A37BC004DDA2F /* MenuViewController.m in Sources */,
+				57079F631A426B9800EBAC44 /* HomeView.m in Sources */,
+				57079F601A426B8A00EBAC44 /* BarView.m in Sources */,
 				570CE5181A2A680100175385 /* BoardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

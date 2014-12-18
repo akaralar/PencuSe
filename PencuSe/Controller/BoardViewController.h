@@ -8,6 +8,19 @@
 
 #import "BaseViewController.h"
 
+@class Move;
+@protocol BoardRules;
+
 @interface BoardViewController : BaseViewController
 
+@property (nonatomic) id <BoardRules> ruleDelegate;
+
 @end
+
+@protocol BoardRules <NSObject>
+
+- (BOOL)boardViewController:(BoardViewController *)controller
+        isAllowedToMakeMove:(Move *)move;
+
+@end
+

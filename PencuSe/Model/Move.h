@@ -8,16 +8,14 @@
 
 #import "BaseModel.h"
 
-typedef struct {
-    NSInteger index;
-    NSInteger offset;
-} MoveRange;
-
 @class Checker;
 
 @interface Move : BaseModel
 
-@property (nonatomic) Checker *checker;
-@property (nonatomic) MoveRange *range;
+@property (nonatomic, readonly) Checker *checker;
+@property (nonatomic, readonly) NSInteger pips;
+@property (nonatomic, readonly) NSInteger indexAfterMove;
+
+- (instancetype)initWithChecker:(Checker *)checker pips:(NSInteger)pips;
 
 @end

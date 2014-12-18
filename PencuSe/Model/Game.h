@@ -7,31 +7,21 @@
 //
 
 #import "BaseModel.h"
-#import "Move.h"
+
+@class Move, Checker;
 
 @interface Game : BaseModel
 
 @property (nonatomic, readonly) NSArray *checkers;
-@property (nonatomic, readonly) NSArray *dice;
 
-/**
- *  Starting a game
- */
-- (void)newGame;
++ (instancetype)newGame;
 
-/**
- *  Actions
- */
-- (void)roll;
-- (void)makeMove:(Move *)move;
+- (instancetype)initWithCheckers:(NSArray *)checkers;
 
-/**
- *  Game Mechanics
- */
-- (BOOL)isLegal:(Move *)move;
+- (BOOL)isMoveLegal:(Move *)move;
 
-
-
+// returns the checker to hit with move, or nil
+- (Checker *)makeMove:(Move *)move;
 
 
 @end

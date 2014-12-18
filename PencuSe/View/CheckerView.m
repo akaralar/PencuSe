@@ -7,6 +7,7 @@
 //
 
 #import "CheckerView.h"
+#import "Masonry.h"
 
 @interface CheckerView ()
 
@@ -30,6 +31,7 @@
     self.layer.borderColor = [UIColor whiteColor].CGColor;
     self.layer.borderWidth = 2;
     self.layer.delegate = self;
+
     return self;
 }
 
@@ -42,11 +44,40 @@
     self.layer.backgroundColor = [UIColor colorForCheckerColor:color].CGColor;
 }
 
+- (UILabel *)countLabel
+{
+    if (!_countLabel) {
+        _countLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        _countLabel.textColor = [UIColor whiteColor];
+        _countLabel.textAlignment = NSTextAlignmentCenter;
+
+        if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+
+            _countLabel.font = [UIFont boldSystemFontOfSize:12];
+        }
+        else {
+
+            _countLabel.font = [UIFont boldSystemFontOfSize:16];
+        }
+
+        [self addSubview:_countLabel];
+
+        [_countLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+
+            make.edges.equalTo(self);
+        }];
+    }
+
+    return _countLabel;
+}
+
 #pragma mark - CALayerDelegate
 
 - (void)layoutSublayersOfLayer:(CALayer *)layer
 {
     self.layer.cornerRadius = self.bounds.size.width / 2;
+
+    [self.countLabel layoutIfNeeded];
 }
 
 @end
